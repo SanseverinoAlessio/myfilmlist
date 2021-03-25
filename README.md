@@ -7,6 +7,7 @@ Welcome to my project. Myfilmlist is a web application developed with angular, n
 ### Create an .env file, and add these variables
 
 * origin = add the url of your client application
+* mongodb = specify the mongodb url
 * aws_storage = add this with true value if you want to use external storage. If you miss it, the code saves automatically in the public folder.
 * aws_key = add your aws storage key if you want to use it
 * aws_secret = your aws secret key
