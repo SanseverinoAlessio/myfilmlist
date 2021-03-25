@@ -1,0 +1,39 @@
+.wrapper{width: 100%; max-width: 800px;background-color: #111111;
+  min-height: 80vh; border-radius: 10px; margin-bottom: 30px;
+  padding: 40px}
+  .wrapper img{border-radius: 10px; object-fit: cover; height: 300px}
+  :host ::ng-deep .mat-form-field-underline::before{background-color: #c9c7c7 }
+
+  :host ::ng-deep .mat-form-field {width: 100%;margin-bottom: 15px}
+  :host ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-underline{background-color: #c9c7c7 !important; opacity: 1 !important}
+  :host ::ng-deep .mat-form-field-ripple {background-color: #c9c7c7; height:2px !important;}
+:host ::ng-deep .mat-form-field:not(.mat-focused)  .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{height: 0px !important}
+  :host ::ng-deep .mat-select-arrow{color: white}
+  :host ::ng-deep .mat-form-field-label{color:  #c9c7c7  !important}
+  :host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{color: #F0C258 !important}
+  :host ::ng-deep .mat-form-field{width: 100% !important}
+  :host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{background-color: #F0C258 !important}
+  :host ::ng-deep .mat-select-value-text{color: #c9c7c7 !important}
+  :host ::ng-deep .mat-form-field.mat-focused .mat-select-arrow{color:#F0C258 !important}
+  :host ::ng-deep .mat-form-field.mat-focused .mat-select-value-text{color:#F0C258 !important}
+  :host ::ng-deep .mat-form-field textarea{color: #c9c7c7}
+  :host ::ng-deep .mat-form-field.mat-focused textarea{color:#F0C258}
+  :host ::ng-deep .mat-form-field .mat-form-field-flex{padding: 0px !important}
+  :host ::ng-deep  .mat-icon-button {color: #c9c7c7 !important }
+  :host ::ng-deep .mat-form-field-subscript-wrapper{padding: 0px !important}
+
+  .upload{margin-bottom: 20px}
+  :host ::ng-deep .confirm_button:disabled:hover circle{stroke: #C8A348 !important}
+  .error{color: #c22813; margin-left: 15px; margin-bottom: 25px}
+  .requestError{color: #c22813; margin-top: 10px}
+
+  .update_button{padding: 7px 30px 7px 30px; margin-top: 10px;
+    background: transparent ; border-radius: 10px;  transition: 0.4s;outline: none !important}
+    input{color: #c9c7c7;}
+    :host ::ng-deep .mat-form-field.mat-focused input{color: #F0C258}
+    :host ::ng-deep .mat-form-field-invalid .mat-form-field-label{color: #f44336 !important;}
+    h2{color: #D1A039; margin-bottom: 35px; font-weight: 700; font-size: 2.5rem;}
+    .backArrowIcon{width:30px !important; height: 30px !important; margin-bottom:20px; cursor: pointer; transition: 0.3s;}
+    .backArrowIcon:hover{transform: scale(1.2,1.2);}
+    :host ::ng-deep .mat-spinner{margin-left: 5px !important}
+    .success{color: #26a307; margin-top: 20px}

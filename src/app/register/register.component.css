@@ -1,0 +1,40 @@
+#bg{min-height: 100vh; background-color: #070707;width: 100% !important}
+#register_container{background-color: white; width: 800px; min-height: 400px; border-radius: 10px;margin-top: 90px; margin-bottom: 20px}
+#register_container img{height: 480px; object-fit: cover;border-radius: 10px}
+.links a{margin-right: 5px; text-decoration: none !important; color: black !important;transition: 0.5s; font-size: 1.2rem;}
+#register_container h2{font-weight: 700;color: black; font-size: 3rem;margin-bottom: 20px}
+.links a.active{color: #273374 !important;  }
+.links a::after{visibility: hidden; content: ''; width: 0%; height: 3px; background-color:#273374; transition: 0.5s;display: block; opacity: 0}
+.links a.active::after{visibility: visible; opacity: 1; width: 100%}
+.links a:hover::after{visibility: visible; opacity: 1;width: 100%}
+.links a:hover{color: #273374 !important; }
+input{width: 100%;}
+.submitButton{border: 3px solid #273374; background-color: transparent; padding: 5px 50px 5px 50px; border-radius: 10px; border-radius: 10px;
+  font-weight: 700;margin-top: 10px; transition: 0.5s;color: #273374;
+}
+.submitButton:hover{background-color: #273374;color: white}
+.mat-form-field-underline{color: red !important}
+.mat-form-field{width: 100% !important;}
+.mat-input-element .mat-form-field-label{color: red !important}
+button[type=submit]{margin-top:20px}
+button[type=submit]:disabled{opacity: 0.5;}
+button[type=submit]:disabled:hover{background-color: transparent !important; color: #273374; cursor: not-allowed;}
+:host ::ng-deep button[type=submit]:hover .mat-progress-spinner circle, .mat-spinner circle{stroke: white !important}
+.mat-error{font-size: 1rem}
+.success {margin-bottom: 2px !important; color: #26a307; margin-top: 5px}
+
+.mat-spinner svg{width: 30px !important; height: 30px !important}
+.hide_button{border:none !important;background: transparent !important}
+
+
+@media only screen and (max-width: 1000px) {
+  #register_container{width: 500px;}
+}
+@media only screen and (max-width: 768px) {
+  #register_container{margin-top: 100px; width: 500px ;margin-bottom: 20px; border-radius: 10px !important}
+  .row{padding: 40px !important; margin: 0px !important}
+  #register_container img{height: 380px}
+}
+@media only screen and (max-width: 500px) {
+  #register_container{ width: 100% !important ; border-radius: 0px !important; margin-top: 50px !important; margin-bottom: 0px !important}
+}

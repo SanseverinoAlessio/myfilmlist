@@ -1,0 +1,13 @@
+const express = require('express');
+const router = express.Router();
+const genreController = require('../Controllers/genre.js');
+const isAdmin = require('../middleware/isAdmin.js');
+const verifyToken = require('../middleware/verifyToken.js');
+const idValidation = require('../middleware/idValidation.js');
+router.get('', genreController.getGenres);
+router.get('/single/:id',idValidation(),genreController.getById);
+router.get('/search/:query', genreController.search);
+router.post('/',verifyToken(),isAdmin(), genreController.create);
+router.delete('/:id',verifyToken(),isAdmin(),idValidation(), genreController.deleteOne);
+router.put('/:id', verifyToken(), isAdmin(),idValidation(), genreController.update);
+module.exports = router;

@@ -1,0 +1,37 @@
+.wrapper  {width: 100%; min-height: 100vh;
+position: fixed;
+visibility: hidden;
+z-index: 999;
+top: 0;
+margin-top: 70px;
+   bottom:0;
+   overflow-y:auto;
+   overflow-x:hidden;
+}
+.wrapper.active{visibility: visible !important; }
+.updater{padding:40px;width: 500px; height: 330px; background-color: #161616; border-radius: 10px; position: relative;
+  z-index: 1000;  opacity: 1; margin-bottom: 100px;margin-top: 30px}
+  #filter{position: fixed; width: 100%; height: 100vh; background-color: black; opacity: 0.4; z-index: 999; top: 0}
+  h2{color: #D1A039; font-weight: 700; margin-bottom: 20px}
+  .mat-form-field{display: block; width: 100%}
+  :host ::ng-deep .mat-form-field {width: 100%;}
+  :host ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-underline{background-color: #c9c7c7 !important}
+  :host ::ng-deep .mat-select-arrow{color: white}
+  :host ::ng-deep .mat-form-field-label{color:  #c9c7c7  !important}
+  :host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{color: #F0C258 !important}
+  :host ::ng-deep .mat-form-field{width: 70% !important}
+  :host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{background-color: #F0C258 !important}
+  :host ::ng-deep .mat-select-value-text{color: #c9c7c7 !important}
+  :host ::ng-deep .mat-form-field.mat-focused .mat-select-arrow{color:#F0C258 !important}
+  :host ::ng-deep .mat-form-field.mat-focused .mat-select-value-text{color:#F0C258 !important}
+  .yellow_button{padding:5px 30px 5px 30px}
+  .remove-icon .mat-icon{color: #c91c16; font-size: 35px}
+  .remove-icon{position: absolute;margin-top:-35px; margin-left: -35px;cursor: pointer;}
+  @media only screen and (max-width: 550px) {
+
+
+    .updater{width: 310px}
+
+
+
+  }

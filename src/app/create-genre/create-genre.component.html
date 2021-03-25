@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center">
+  <div class="wrapper">
+    <img (click)="back();" class="backArrowIcon" src="../../assets/Icons/back_Arrow.svg">
+    <h2>{{title}}</h2>
+    <div *ngIf="loadingGenres == false">
+      <div style="margin-top:20px">
+        <form  [formGroup]="genreForm">
+          <div class="row">
+            <div class="col-md-6">
+              <img style="width:100%; margin-bottom:20px" [src]="imagePreview">
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+              <button (click)="genreImage.click();" class="upload">Carica <span> <mat-icon>upload</mat-icon> </span></button>
+              <input (change)="onFileChange($event)" formControlName="file"  #genreImage style="display:none" type="file">
+            </div>
+              <p class="error">{{fileError}}</p>
+          </div>
+          <mat-form-field>
+            <mat-label>Genere</mat-label>
+            <input formControlName="name" matInput>
+            <mat-error *ngIf="genreForm.controls.name.errors && genreForm.controls.name.errors.required">Devi inserire il genere</mat-error>
+          </mat-form-field>
+          <button (click)="submit()" type="submit" [disabled]="genreForm.valid != true" class="yellow_button confirm_button d-flex">{{genreId.length > 0 ? 'Aggiorna' : 'Aggiungi'}} <mat-spinner *ngIf="loading" [diameter]="25"></mat-spinner> </button>
+        </form>
+        <p *ngIf="success" class="success">{{genre.length > 0 ? 'Genere aggiornato con successo!' : 'Genere aggiunto con successo!'}}</p>
+        <p *ngIf="requestError" class="requestError">C'è stato un errore...</p>
+      </div>
+    </div>
+    <div style="min-height:80vh; top:0" class="d-flex justify-content-center align-items-center" *ngIf="loadingGenres">
+      <mat-spinner class="loading_spinner" [diameter]="60"></mat-spinner>
+    </div>
+  </div>

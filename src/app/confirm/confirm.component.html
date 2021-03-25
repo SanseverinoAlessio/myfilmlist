@@ -1,0 +1,17 @@
+<div [class.active]="open" class="wrapper">
+  <div *ngIf="open" (click)="close();"  id="filter"></div>
+  <div style="min-height:100vh" class="d-flex justify-content-center align-items-center">
+    <div *ngIf="open"  [@popUpAnim] class="updater">
+      <a (click)="close()" class="remove-icon"> <mat-icon>close</mat-icon>  </a>
+      <div style="height:100%" class="d-flex justify-content-center flex-column">
+      <h2>{{title}}</h2>
+      <p>{{text}}</p>
+
+      <ul class="selection">
+        <li><a (click)="confirm()">Si</a></li>
+        <li><a (click)="close()">No</a></li>
+      </ul>
+      </div>
+    </div>
+  </div>
+</div>

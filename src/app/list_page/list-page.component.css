@@ -1,0 +1,5 @@
+.edit-button{cursor: pointer}
+.film_link{text-decoration: none !important}
+.notFound{color: white;  }
+.search_query{color: #c9c7c7 !important; margin-bottom: 10px;  display: block; margin-top: 10px}
+.novote{color:#c9c7c7; display: block; margin-top: -10px; font-size: 1.1rem;}

@@ -1,0 +1,161 @@
+header{top:0; position: absolute;; width: 100%;z-index: 998}
+nav{ z-index: 1000; position: relative;}
+.navigation{width: 100%; height: 70px; background-color: #192B6D;z-index: 999; position: fixed;}
+#logo{padding-top: 17px; }
+#logo a{color: white; padding-left:120px;font-weight: 700; font-size: 1.7rem;text-decoration: none !important}
+.sidebar{left: 0; height: 100vh; background-color:#2D428E; width: 100px; z-index: 999;position: fixed;
+  margin-top:70px;top:0; bottom:0;  overflow-y:auto;
+  overflow-x:hidden;
+}
+.user_account_img{object-fit:cover;}
+#hamburger_menu{cursor: pointer}
+#hamburger_menu span{width: 40px; height: 3px;
+  background-color: white;
+  display: block;
+  margin-bottom: 6px;
+  border-radius: 20px; }
+  #hamburger_menu{position: absolute;padding: 20px;display: none; margin-top: 5px}
+  .sidebar ul{list-style: none !important;padding-top:60px;padding-bottom: 60px }
+  .sidebar ul li a img{width: 30px; height: 30px; transition: 0.3s;}
+  .sidebar a:hover img{transform: scale(1.2);}
+  .sidebar ul li a{transition: 0.2s;width:100px; display: block; height: 70px; padding:20px 30px 20px 30px}
+  .sidebar ul li a span{text-align: center;}
+  .sidebar a:hover{background-color: #192B6D; }
+  .sidebar a.active{background-color:#192B6D; }
+  .sidebar a.active img{transform: scale(1.2);}
+  .user_account_img{width: 40px; height: 40px; border-radius: 100%}
+  .account{padding-top: 10px; padding-left: 50px}
+  .account a{display: block; margin-top: 10px; margin-left: 10px; text-decoration: none !important}
+  .searchBar{margin-left: 15px; width:90%; height: 40px; margin-top:15px;border-radius: 10px; padding-left: 10px; padding-right: 30px;outline: none !important}
+  #searchBtn{border: none !important; background: transparent !important; outline: none !important;outline:none !important;
+  }
+  #searchBtn img{width: 20px; height: 20px; margin-left: -40px;}
+  .sidebar a span{color: white; text-decoration: none !important; font-weight: 700;}
+  .sidebar a {text-decoration: none !important}
+  .sidebar img{margin-top: -10px; margin-bottom: 4px}
+  .sidebar li{margin-bottom: 5px}
+  .searchForm{width: 80%; margin-left: 20px; margin-top: 6px}
+  .sidebar #searchBtn{margin-top:25px}
+  .username{color: white !important; margin-left: 10px; margin-top: 10px;cursor: pointer}
+  .sidebar .username{margin-top:30px !important;}
+  .navigation .username .mat-icon{ margin-left: -3px; color: white; }
+  .dropdown{color: white; list-style: none !important}
+  :host ::ng-deep .mat-form-field {width: 80%;}
+  :host ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-underline{background-color: #c9c7c7 !important}
+  :host ::ng-deep .mat-select-arrow{color: white}
+  :host ::ng-deep .mat-form-field-label{color:  #c9c7c7  !important}
+  :host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{color: #F0C258 !important}
+  :host ::ng-deep .mat-form-field{width: 70% !important}
+  :host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{background-color: #F0C258 !important}
+
+  .mat-form-field.mat-focused .searchInput{color:#F0C258}
+  #mobileSearchButton{background: none !important; border: none !important; color: white !important; margin-left: 15px; margin-top: 10px; outline: none}
+  #mobileSearchButton .mat-icon{font-size: 30px;}
+  .nav_dropdown{ position: absolute;padding-top:50px; list-style: none; margin-left: -15px; visibility: hidden; opacity: 0; transition: 0.3s;}
+  .nav_dropdown a{color: #e3e3e3; background-color: #2D428E;
+    padding:10px;
+    margin-top: 0px !important;
+    font-weight:700;transition: 0.4s;}
+    .nav_dropdown li:first-child a{border-top-right-radius: 5px;border-top-left-radius: 5px;}
+    .nav_dropdown li:last-child a{border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;}
+    .searchInput{width: 100%; color:#c9c7c7; transition: 0.2s}
+
+    .sidebarLink{display: flex !important; flex-direction: column !important; align-items: center !important;
+    }
+    .dropdownActive .nav_dropdown{visibility: visible; opacity: 1; min-height: 120px}
+    #hamburger_menu.deactive span:nth-of-type(1){
+      animation-name: hamburgerMenuFirstOut;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-direction: reverse;
+    }
+    #hamburger_menu.deactive span:nth-of-type(2){
+      animation-name: hamburgerMenuSecondOut;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-direction: reverse;
+    }
+    #hamburger_menu.deactive span:nth-of-type(3){
+      animation-name: hamburgerMenuThirdOut;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-direction: reverse;
+    }
+    #hamburger_menu.active span:nth-of-type(1){
+      animation-name: hamburgerMenuFirst;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-direction: normal;
+    }
+    #hamburger_menu.active span:nth-of-type(2){
+      animation-name: hamburgerMenuSecond;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-direction: normal;
+    }
+    #hamburger_menu.active span:nth-of-type(3){
+      animation-name: hamburgerMenuThird;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-direction: normal;
+    }
+    @keyframes hamburgerMenuFirst {
+      0%{transform:translateY(0px);}
+      50%{transform:translateY(9px) rotate(0deg);background-color: white}
+      100%{transform: translateY(9px) rotate(45deg); background-color: white;}
+    }
+    @keyframes hamburgerMenuFirstOut {
+      0%{transform:translateY(0px);}
+      50%{transform:translateY(9px) rotate(0deg);background-color: black}
+      100%{transform: translateY(9px) rotate(45deg); background-color: white}
+    }
+    @keyframes hamburgerMenuSecond {
+      50%{transform: rotate(0deg);background-color: white}
+      100%{transform: rotate(-45deg); background-color: white}
+    }
+    @keyframes hamburgerMenuSecondOut {
+      50%{transform:rotate(0deg);background-color: white}
+      100%{transform: rotate(-45deg);background-color: white}
+    }
+    @keyframes hamburgerMenuThird {
+      0%{transform:translateY(0px);}
+      50%{transform:translateY(-9px) rotate(0deg);background-color: white }
+      100%{transform: translateY(-9px) rotate(45deg);background-color: white}
+    }
+    @keyframes hamburgerMenuThirdOut {
+      0%{transform:translateY(0);}
+      50%{transform:translateY(-9px) rotate(0deg);background-color: white }
+      100%{transform: translateY(-9px) rotate(45deg);background-color: white}
+    }
+    @media only screen and (min-width: 768px) {
+      .nav_dropdown a:hover,.nav_dropdown a.active{background-color: #192B6D !important; }
+      .username:hover > .nav_dropdown{visibility: visible;opacity: 1;}
+    }
+    @media only screen and (max-width: 768px) {
+      .sidebarLink{align-items: flex-start !important; flex-direction: row !important; }
+      .not_logged_user{background: transparent !important;padding: 0px !important}
+      .account {min-height: 200px !important;}
+      .dropdown{height: 50px;}
+      .sidebar .nav_dropdown { position: relative; margin-left: -80px; visibility: hidden; height: 0px }
+      .sidebar .dropdown.active > .nav_dropdown{height: auto !important; visibility: visible !important; opacity: 1 !important; transition: 0.4s;}
+      .sidebar .dropdown.active{height: auto !important}
+      .sidebar .nav_dropdown a{background-color: transparent !important; color: white; padding:5px  !important}
+      .sidebar .username {margin-top: 10px !important}
+      .sidebar .username:hover{background: none !important}
+      .searchForm{position: absolute;margin-top: 70px;
+        background-color: #2D428E; width: 100%;
+        margin-left: 0px !important; padding-left: 20px; height: 0px}
+        .sidebar a{display:flex; width: auto !important; padding-top: 25px !important;}
+        .sidebar li{width: 100% !important;text-align: left;}
+        .sidebar li a span{margin-left: 10px}
+        .sidebar .mobileNavigationLinks{padding-top: 0px !important}
+        .sidebar{transform: translateX(-768px);width: 100%; transition: 0.8s;visibility: hidden;opacity: 0;}
+        #hamburger_menu{display: block; z-index: 1000}
+        .navigation{display: none}
+        .navigation .searchBar{display: none}
+        .navigation .account{display: none !important}
+        .sidebar .account {padding-top: 30px; padding-left: 20px !important}
+        .sidebar .account img{margin-top: 10px; width: 70px !important; height: 70px !important;}
+        .navigation #searchBtn{display: none}
+        #logo a{padding-left: 80px;}
+      }

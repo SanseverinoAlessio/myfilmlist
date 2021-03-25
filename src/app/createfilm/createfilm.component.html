@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-center">
+  <div class="wrapper">
+    <img (click)="back();" class="backArrowIcon" src="../../assets/Icons/back_Arrow.svg">
+    <h2>{{title}}</h2>
+    <div *ngIf="loadingFilm == false">
+      <div style="margin-top:20px">
+        <form  [formGroup]="filmForm">
+          <div class="row">
+            <div class="col-md-6">
+              <img style="width:100%; margin-bottom:20px" [src]="imagePreview">
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+              <button (click)="filmImage.click();" class="upload">Carica <span> <mat-icon>upload</mat-icon> </span></button>
+              <input (change)="onFileChange($event)" formControlName="file"  #filmImage style="display:none" type="file">
+            </div>
+            <p class="error">{{fileError}}</p>
+          </div>
+          <mat-form-field>
+            <mat-label>Nome del film</mat-label>
+            <input formControlName="name" matInput>
+            <mat-error *ngIf="filmForm.controls.name.errors && filmForm.controls.name.errors.required">Devi inserire il nome del film</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Descrizione del film</mat-label>
+            <textarea formControlName="description" matInput></textarea>
+            <mat-error *ngIf="filmForm.controls.description.errors && filmForm.controls.description.errors.required">Devi inserire una descrizione</mat-error>
+            <mat-error *ngIf="filmForm.controls.description.errors && filmForm.controls.description.errors.minlength">La descrizione deve avere almeno 100 caratteri</mat-error>
+            <mat-error *ngIf="filmForm.controls.description.errors && filmForm.controls.description.errors.maxlength">La descrizione può avere un massimo di 400 caratteri</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+      <mat-label>Data di rilascio</mat-label>
+      <input formControlName="releaseDate" matInput [matDatepicker]="picker">
+      <mat-error *ngIf="filmForm.controls.releaseDate.errors && filmForm.controls.releaseDate.errors.required">Inserisci la data di rilascio</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+          <mat-form-field style="margin-bottom:10px; margin-right:20px">
+            <mat-label>Seleziona un genere</mat-label>
+            <mat-select [(ngModel)]="checkedGenres" multiple formControlName="genre">
+              <mat-option  [value]="genre._id" *ngFor="let genre of genres">{{genre.name}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="filmForm.controls.description.errors && filmForm.controls.description.errors.required">Devi inserire un genere</mat-error>
+          </mat-form-field>
+          <button (click)="submit()" type="submit" [disabled]="filmForm.valid != true" class="yellow_button confirm_button d-flex">{{filmId.length > 0 ? 'Aggiorna' : 'Aggiungi'}} <mat-spinner *ngIf="loading" [diameter]="25"></mat-spinner> </button>
+        </form>
+        <p *ngIf="success" class="success">{{filmId.length > 0 ? 'Film aggiornato con successo!' : 'Film aggiunto con successo!'}}</p>
+        <p *ngIf="error" class="requestError">C'è stato un errore...</p>
+      </div>
+    </div>
+    <div style="min-height:80vh; top:0" class="d-flex justify-content-center align-items-center" *ngIf="loadingFilm">
+      <mat-spinner class="loading_spinner" [diameter]="60"></mat-spinner>
+    </div>
+  </div>

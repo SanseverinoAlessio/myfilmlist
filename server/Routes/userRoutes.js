@@ -1,0 +1,20 @@
+const express = require('express');
+const router = express.Router();
+const userController = require('../Controllers/user.js');
+const idValidation = require('../middleware/idValidation.js');
+const isAdmin = require('../middleware/isAdmin.js');
+const verifyToken = require('../middleware/verifyToken.js');
+const emailExist = require('../middleware/emailExist.js');
+const passwordToken = require('../middleware/passwordToken');
+router.post('/register',userController.register);
+router.post('/login',userController.login);
+router.get('/email/:email', userController.getUserByEmail);
+router.get('',userController.getUsers);
+router.get('/search/:name',userController.getUsersByQuery);
+router.delete('/:id',verifyToken(),isAdmin(),idValidation(),userController.deleteUser);
+router.put('/:id',verifyToken(),isAdmin(),idValidation(),userController.updateAdmin);
+router.post('/sendResetToken',emailExist(), userController.createPasswordToken);
+router.put('/resetPassword/:token',userController.resetPassword);
+router.get('/passwordTokenExist/:token',passwordToken(), userController.passwordTokenExist);
+
+module.exports = router;

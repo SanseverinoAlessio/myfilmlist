@@ -1,0 +1,5 @@
+.bg{background-color: #070707; min-height: 100vh;padding-top:130px}
+@media only screen and (max-width: 450px) {
+.bg{padding-left: 0px !important; padding-right: 0px}
+.container{padding-left:0px; padding-right: 0px}
+}

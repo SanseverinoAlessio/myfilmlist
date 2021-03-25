@@ -1,0 +1,24 @@
+.dashboard_welcome{background-color: #111111; width: 100%; min-height: 150px;border-radius: 10px; padding: 40px; margin-bottom: 50px}
+h1{color: #D1A039; font-weight: 700;font-size: 3rem;}
+.dashboard_welcome p{color: #C2C2C2; max-width: 700px}
+.content_section{padding:40px;width: 100%;
+  background-color: #111111;
+  border-radius: 10px; min-height: 250px}
+  .content_section h2{color:#D1A039; font-weight: 700;font-size: 2.2rem;}
+  .icon_circle{display: block; background-color: #2D428E; border-radius: 100%; width: 65px; height: 65px}
+  .icon_circle img{width: 30px; height: 30px}
+  .content_section .text{color: #DBDBDB; font-weight: 700; font-size: 1.1rem; margin-top:10px}
+  .content_section .element{margin-bottom: 40px}
+  .content_section .element a{cursor: pointer;text-decoration: none !important;transition: 0.3s;}
+  .content_section .element a:hover{transform: scale(1.1);}
+  .bg{background-color: #070707; min-height: 100vh;padding-top:130px}
+  @media only screen and (max-width: 450px) {
+  .bg{padding-left: 0px !important; padding-right: 0px}
+  .container{padding-left:0px; padding-right: 0px}
+  }
+  @media only screen and (max-width: 450px) {
+
+
+
+
+  }

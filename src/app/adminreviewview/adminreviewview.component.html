@@ -1,0 +1,19 @@
+<div  [class.active]="status" class="wrapper">
+  <div *ngIf="status" (click)="close();" id="filter"></div>
+  <div style="min-height:100vh;" class="d-flex justify-content-center align-items-center">
+    <div *ngIf="status" [@popUpAnim] class="review_view">
+      <a (click)="close();" class="remove-icon"> <mat-icon>close</mat-icon>  </a>
+      <div style="margin-top:20px" class="d-flex align-items-center">
+        <img class="avatar" [src]="avatarPath + reviewData.user[0].avatar">
+        <div style="margin-left:20px" class="d-flex flex-column">
+          <span style="margin-bottom:5px" class="name">{{reviewData.user[0].name}}</span>
+          <span class="date">Scritta il: <b>{{reviewData.date | date:"mediumDate"}}</b></span>
+        </div>
+      </div>
+      <div style="margin-top:30px; margin-bottom:20px">
+        <span class="score">Valutazione: {{reviewData.vote}}</span>
+        <p class="text">{{reviewData.text}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,16 @@
+<h2>La tua lista</h2>
+<div class="list_nav">
+  <ul>
+    <li><a routerLinkActive="active" routerLink="/account/list/watched" >Visti</a></li>
+    <li><a routerLinkActive="active" routerLink="/account/list/planned" >Da vedere</a></li>
+    <li><a routerLinkActive="active" routerLink="/account/list/incompleted" >Incompleti</a></li>
+  </ul>
+  <div style="width:100%">
+    <mat-form-field  style="margin-top:20px;">
+      <mat-label>Cerca qui</mat-label>
+     <input class="searchInput" #searchInput (keyup)="searchChange($event);" matInput type="search">
+     <button (click)="search(searchInput.value)" class="searchButton" matPrefix><mat-icon> search</mat-icon></button>
+     <button (click)="searchInput.value = ''; searchChangeOb.next(searchInput.value)" *ngIf="searchInput.value.length > 0" class="cancelSearch" matSuffix><mat-icon>close</mat-icon></button>
+      </mat-form-field>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+.table_wrapper{width: 100%; min-height: 500px;background-color: #111111; border-radius: 10px; overflow-x: auto;margin-bottom: 50px}
+h2{color: #D1A039; font-weight: 700;font-size: 2.5rem;}
+.table_wrapper{padding:40px}
+#film_table{margin-top: 30px}
+#film_table th{color: #D1A039; font-weight: 700; }
+table{background:transparent; color: white !important; margin-top: 30px;width: 100%;overflow-x: auto;}
+table .mat-cell{color: white !important}
+table .mat-header-cell{color: #D1A039; font-size: 1.3rem;font-weight: 700;}
+.ellipsisMenu{width: 20px; height: 20px; cursor: pointer}
+.ellipsisMenuBtn{background: transparent; outline: none !important; border: none !important}
+button{outline: none !important}
+th{border-bottom: #D1A039 3px solid !important}
+td{border:none !important}
+.mat-paginator{background: transparent !important;color: white}
+:host ::ng-deep .mat-paginator .mat-paginator-icon{color: white !important}
+:host ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-underline{background-color: #c9c7c7 !important}
+:host ::ng-deep .mat-select-arrow{color: white}
+:host ::ng-deep .mat-form-field-label{color:  #c9c7c7  !important}
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{color: #F0C258 !important}
+:host ::ng-deep .mat-form-field .mat-select-value{color: #c9c7c7 !important}
+:host ::ng-deep .mat-form-field.mat-focused .mat-select-value{color:#F0C258 !important }
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{background-color: #F0C258 !important}
+:host ::ng-deep .mat-form-field .mat-select-arrow {color: #c9c7c7}
+:host ::ng-deep .mat-form-field.mat-focused .mat-select-arrow {color: #F0C258}
+.separator{background-color: #D1A039; height: 3px; box-shadow: none !important; border: none; width: 100%;margin-bottom: 30px;display: block}
+.loading_spinner{margin-top: 30px; margin-bottom: 10px}
+:host ::ng-deep .mat-paginator .mat-icon-button.mat-button-disabled{opacity: 0.4 !important;}
+:host ::ng-deep .mat-paginator .mat-icon-button{outline:none !important}
+#searchBar{width: 100%;}
+#searchBar input{color:#c9c7c7}
+#searchBar.mat-focused input{color:#F0C258}
+.searchButton{background: transparent; border: none !important}
+#searchBar .searchButton .mat-icon {color:#c9c7c7}
+#searchBar.mat-focused .searchButton .mat-icon {color:#F0C258}
+.changeLoading{position: fixed;min-height: 100vh;width: 100%;left: 0; top: 0;background-color: rgba(255,255,255,0.2);z-index: 1000}
+@media only screen and (max-width: 600px) {
+  .table_wrapper{padding: 40px}
+  td::before{display: inline-block; content: attr(data-name); font-weight: 700;font-size: 1rem; margin-right: 5px}
+  tr{display: block; margin-bottom: 200px}
+  td{display: block; margin-bottom: 10px}
+  th{display: none !important;}
+:host ::ng-deep  .mat-table thead:first-of-type{display: none !important}
+  th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type{padding-left: 0px !important}
+}

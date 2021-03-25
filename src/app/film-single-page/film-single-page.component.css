@@ -1,0 +1,43 @@
+.film-section{width: 100%; min-height: 400px; background-color: #111111; border-radius: 10px;}
+.film-section img{width: 100%; border-radius: 10px; height: 350px; object-fit: cover;}
+.film-section {padding: 30px}
+.title{color: white; font-weight: 700; font-size: 2.7rem;margin-top: 20px; margin-left: -2px}
+.description{color: #D8D8D8; margin-top: 10px; margin-bottom: 20px}
+.vote{color: #D1A039; font-size: 2rem;display: block; margin-top: -18px; font-weight: 700}
+.film-nav li{display: inline-block; margin-right: 15px}
+.film-nav ul{list-style: none !important}
+.film-nav{margin-top: 40px; margin-left: 40px}
+.film-nav a{color: #D1A039; font-size: 1.3rem;cursor: pointer;font-weight: 700;text-decoration: none !important}
+.film-nav a::after{display: block; content: ''; height: 3px; width: 0%;background-color: #D1A039;opacity: 0; visibility: hidden;transition: 0.5s}
+.film-nav a.active::after{width: 100%; visibility: visible; opacity: 1;}
+.film-nav a:hover::after{width: 100%; visibility: visible; opacity: 1;}
+.second-section{background-color: #111111; width: 100%; min-height: 300px;  border-radius: 10px; position: relative; margin-bottom: 20px}
+.exist{color: #C8A348;}
+.backArrowIcon{width:30px; height: 30px; margin-left: 20px; margin-bottom:20px; cursor: pointer; transition: 0.3s;}
+.backArrowIcon:hover{transform: scale(1.2,1.2);}
+:host ::ng-deep .yellow_button .mat-progress-spinner circle, .mat-spinner circle{stroke: #C8A348 !important;}
+:host ::ng-deep .yellow_button:hover .mat-progress-spinner circle, .mat-spinner circle{stroke:black !important}
+:host ::ng-deep .mat-form-field-label{color: #c9c7c7}
+:host ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-underline{background-color: #c9c7c7 !important}
+:host ::ng-deep .mat-select-arrow{color: white}
+:host ::ng-deep .ng-star-inserted{color: white !important}
+.success{color: #26a307 !important}
+.paragraph_icon span{width: 24px; height: 18px; display: inline-block;}
+.paragraph_icon .mat-icon{position: absolute;}
+button[type=submit]:disabled{opacity: 0.5;}
+button[type=submit]:disabled:hover{background-color: transparent !important; color: #C8A348 !important; cursor: not-allowed;}
+.isNotLogged{color:#D1A039 !important; }
+.genre{margin-bottom: 5px; display: block; color: #D8D8D8 !important;
+  margin-top: -5px; font-size:1.05rem;display: inline-block;margin-bottom: 20px}
+.genre ul li{color: #D8D8D8 !important}
+.date{margin-bottom: 10px; display: block; color: #D8D8D8;}
+.genre ul{padding-left: 5px; margin-bottom: 0px}
+.genre li{display: inline-block;padding-right: 5px}
+.genre ul li:not(:last-of-type)::after{content:','; display: inline-block;}
+.genre a{color: #D8D8D8; font-weight: 700;}
+@media only screen and (max-width: 450px) {
+  .page-container{padding-left: 0px; padding-right: 0px !important}
+  .second-section{border-radius: 0px !important}
+  .film-section{border-radius: 0px !important}
+  .film-nav{padding-left: 10px}
+}

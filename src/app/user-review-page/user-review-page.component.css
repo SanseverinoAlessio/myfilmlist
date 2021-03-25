@@ -1,0 +1,38 @@
+:host ::ng-deep .mat-form-field {width: 80%;}
+:host ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-underline{background-color: #c9c7c7 !important}
+:host ::ng-deep .mat-select-arrow{color: white}
+:host ::ng-deep .mat-form-field-label{color:  #c9c7c7  !important}
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{color: #F0C258 !important}
+:host ::ng-deep .mat-form-field{width: 70% !important}
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{background-color: #F0C258 !important}
+.mat-form-field.mat-focused .searchButton{color:#F0C258 !important }
+:host ::ng-deep .mat-form-field .reviewInput{color: #c9c7c7 }
+:host ::ng-deep .mat-form-field.mat-focused .reviewInput{color: #F0C258}
+.textReviewWrapper{display: none}
+.textReviewWrapper.active{display: block}
+.searchInput{width: 100%; color:#c9c7c7; transition: 0.2s}
+.mat-form-field.mat-focused .searchInput{color:#F0C258}
+.review_wrapper{background-color: #111111; min-height: 350px; border-radius: 10px; padding:20px}
+.date{color: #DFDFDF}
+.avatar{width: 120px; height: 120px; border-radius: 100%;object-fit: cover;}
+.information{margin-top: 40px}
+.information .name{color: white; margin-top: 40px; margin-left: 15px; font-weight: 700; font-size: 1.2rem; word-break: break-all;}
+.vote{color: #D1A039 !important; margin-top: 30px; display: block; margin-left: 15px;margin-top: 20px; font-size: 1.4rem;}
+.review_text{margin-top:5px; color: #D8D8D8 !important; max-width: 80%; margin-left: 15px}
+.buttons ul{list-style: none !important; margin: 0px;}
+.buttons li{display: inline-block;margin-right: 10px; margin-bottom: 10px}
+.spinner{display: none;margin-left: 5px}
+.loading_reviews_spinner{stroke: #F0C258}
+.search_query{color: #c9c7c7 !important}
+.notFound{color: white;  }
+
+
+
+@media only screen and (max-width: 450px) {
+  .review_column{padding: 0px !important}
+  .wrapper{padding-right: 0px !important}
+  .review_wrapper{border-radius: 0px !important}
+
+
+
+}

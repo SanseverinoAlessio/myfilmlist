@@ -1,0 +1,33 @@
+<div class="review">
+  <div class="user_reviews row">
+    <p class="warning" *ngIf="existInList == false"> <span class="icon"><mat-icon>warning</mat-icon></span> Per poter recensire, devi inserire il film in questione all'interno della tua lista</p>
+
+    <div *ngFor="let review of reviews.result" class="col-md-12 userReview">
+      <div class="d-flex">
+        <img class="userAvatar" [src]="review.user[0].avatar.length > 0 ? avatarUrl + review.user[0].avatar : '../../assets/Images/default-avatar.png'">
+        <div class="d-flex flex-column">
+          <span class="user_review_name">{{review.user[0].name}}</span>
+          <span class="date">Scritta il: <b>{{review.date | date:'mediumDate' }}</b></span>
+        </div>
+      </div>
+      <span class="vote">Valutazione: <b>{{review.vote}}</b></span>
+      <p class="review_text">{{review.text}}</p>
+    </div>
+  </div>
+  <div class="buttons">
+    <ul>
+      <li *ngIf="lastReview == false"><button (click)="loadOtherReviews();" class="yellow_button d-flex">Carica altre recensioni <mat-spinner *ngIf="loadingReviews" style="margin-left:10px" [diameter]="25" ></mat-spinner> </button></li>
+      <li *ngIf="logged && userReviewExist == false && existInList == true"><button (click)="createReview = !createReview" class="grey_button">Scrivi una recensione</button></li>
+      <li *ngIf="userReviewExist == true"><p style="color: white; font-size:1rem; font-weight:700">Hai già recensito questo film</p></li>
+    </ul>
+  </div>
+<div *ngIf="createReview && userReviewExist == false">
+    <form (ngSubmit)="addReview()" class="reviewForm" [formGroup]="reviewForm">
+      <mat-form-field style="margin-top:20px; width:80%; margin-right:10px">
+        <mat-label>Recensione <span> </span></mat-label>
+        <textarea class="reviewText" formControlName="text" type="text"  matInput></textarea>
+      </mat-form-field>
+      <button type="submit" class="yellow_button "><span class="d-flex">Invia <mat-spinner *ngIf="loadingAddReview" style="margin-left:10px" [diameter]="25" ></mat-spinner> </span></button>
+      </form>
+</div>
+</div>

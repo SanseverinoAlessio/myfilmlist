@@ -1,0 +1,72 @@
+<header>
+  <nav>
+    <div  class="navigation d-flex">
+      <div [class.deactive]="deactive" [class.active]="hamburgerMenuStatus" (click)="hamburgerMenuActive();" id="hamburger_menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="logo">
+        <a routerLink="/home">MyFilmList</a>
+      </div>
+      <button (click)="mobileSearch = !mobileSearch"  id="mobileSearchButton" *ngIf="isMobile() && router.url.indexOf('admin') == -1" >
+        <mat-icon>{{mobileSearch == false ? "search" : "clear"  }}</mat-icon>
+      </button>
+      <div *ngIf="router.url.indexOf('admin') == -1" [@mobileSearch]="searchAnimation()"  class="d-flex" class="searchForm">
+        <mat-form-field>
+          <mat-label>Cerca qui</mat-label>
+          <button mat-button (click)="search(searchInput.value)" class="searchButton" matPrefix ><mat-icon>search</mat-icon></button>
+          <input type="search" class="searchInput" #searchInput (keyup)="searchChange($event)"  matInput>
+          <button (click)="searchInput.value = ''; searchInputChange.next(searchInput.value)" *ngIf="searchInput.value.length > 0" class="cancelSearch" matSuffix><mat-icon>close</mat-icon></button>
+        </mat-form-field>
+      </div>
+      <div style="margin-left:auto; margin-right:200px" class="account ">
+        <div style="width:200px" class="d-flex">
+          <img class="user_account_img" [src]="avatarUrl" >
+          <a class="username d-flex" *ngIf="logged != false && userInformation != undefined"><b>{{userInformation.username}}</b>
+            <span style="margin-top:1px"> <mat-icon>arrow_drop_down</mat-icon></span>
+            <ul class="nav_dropdown">
+              <li *ngFor="let link of accountLink"><a routerLinkActive="active" [routerLink]="link.path">{{link.name}}</a></li>
+            </ul>
+          </a>
+          <a routerLink="/account/login" style="color:white" *ngIf="logged == false">Accedi o registrati</a>
+        </div>
+      </div>
+    </div>
+    <div [@sidebar]="sidebarAnim()" class="sidebar">
+        <div *ngIf="isMobile()" class="account d-flex">
+          <img class="user_account_img" [src]="avatarUrl">
+          <a mobileDropdown  [close]="!hamburgerMenuStatus"   class="username dropdown" *ngIf="logged != false && userInformation != undefined"><b >{{userInformation.username}}</b>
+            <span style="margin-left:-5px"> <mat-icon>arrow_drop_down</mat-icon></span>
+            <ul [class.active]="mobileDropdown"  class="nav_dropdown">
+              <li *ngFor="let link of accountLink"><a  class="dropdown_link" [routerLink]="link.path">{{link.name}}</a></li>
+            </ul>
+          </a>
+          <a routerLink="/account/login" class="not_logged_user" style="color:white" *ngIf="logged == false">Accedi o registrati</a>
+        </div>
+      <ul *ngIf="router.url.indexOf('admin') == -1" class="d-flex  flex-column mobileNavigationLinks ">
+        <li><a class="sidebarLink" routerLinkActive="active" routerLink="/home"> <img src="../../assets/Icons/home.svg"> <span>Home</span></a> </li>
+        <li><a class="sidebarLink" routerLinkActive="active" routerLink="/film"><img src="../../assets/Icons/clapperboard.svg">  <span>Film</span> </a> </li>
+        <li *ngIf="logged"><a class="sidebarLink" routerLinkActive="active" routerLink="/account/list"> <img src="../../assets/Icons/list.svg"> <span>Lista</span> </a></li>
+        <li *ngIf="logged"><a class="sidebarLink" routerLink="/account/reviews" routerLinkActive="active">
+          <img src="../../assets/Icons/comment.svg">
+          <span>Recensioni</span>
+        </a></li>
+      </ul>
+      <ul class="d-flex flex-column mobileNavigationLinks" *ngIf="router.url.indexOf('admin') != -1">
+        <li><a class="sidebarLink" routerLinkActive="active" routerLink="/admin/dashboard"> <img src="../../assets/Icons/dashboard_icon.svg">
+          <span>Dashboard</span></a> </li>
+          <li><a class="sidebarLink" routerLinkActive="active" routerLink="/admin/film"> <img src="../../assets/Icons/clapperboard.svg">
+            <span>Film</span></a> </li>
+            <li><a class="sidebarLink" routerLinkActive="active" routerLink="/admin/genre"> <img src="../../assets/Icons/genres_icon.svg">
+              <span>Generi</span></a> </li>
+              <li><a class="sidebarLink" routerLinkActive="active" routerLink="/admin/review"> <img src="../../assets/Icons/comment.svg">
+                <span>Recensioni</span></a> </li>
+                <li><a class="sidebarLink" routerLinkActive="active" routerLink="/admin/user"> <img src="../../assets/Icons/user_icon.svg">
+                  <span>Utenti</span></a> </li>
+                  <li><a class="sidebarLink"  routerLink="/home"> <img src="../../assets/Icons/exit.svg">
+                    <span>Esci</span></a> </li>
+      </ul>
+    </div>
+  </nav>
+</header>

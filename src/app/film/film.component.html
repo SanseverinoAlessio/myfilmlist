@@ -1,0 +1,13 @@
+<div
+ style="min-height:100vh; background-color: #070707; padding-top:120px" class="container-fluid film_container">
+ <div class="container">
+  <h2>Film</h2>
+ <div class="genres">
+   <ul>
+   <li *ngFor="let genre of genres"><a routerLinkActive="active"  [routerLink]="'/film/genere/' + genre.name" >{{genre.name}}</a></li>
+   </ul>
+  <mat-spinner  class="loading_spinner" *ngIf="loadingGenres" style="margin-bottom:20px" [diameter]="30" ></mat-spinner>
+ </div>
+ <router-outlet></router-outlet>
+ </div>
+ </div>

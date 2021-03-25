@@ -1,0 +1,59 @@
+<div  id="bg" class="d-flex justify-content-center align-items-center">
+  <div id="register_container">
+    <div style="padding:10px" class="row">
+      <div class="col-md-6">
+        <img style="width:100%" src="../../assets/Images/film.jpg">
+      </div>
+      <div style="padding-top:50px" class="col-md-6 ">
+        <h2>Registrati</h2>
+        <div class="d-flex links">
+          <a routerLinkActive="active" routerLink="/account/login">Accedi</a>
+          <a routerLinkActive="active" routerLink="/account/register">Registrati</a>
+        </div>
+        <div [@fadeIn] >
+          <form [formGroup]="registerForm">
+            <mat-form-field style="margin-top:20px;">
+              <mat-label>Nome utente</mat-label>
+              <mat-error *ngIf="registerForm.controls.username.errors && registerForm.controls.username.errors.required">Devi inserire il tuo nome utente</mat-error>
+              <mat-error *ngIf="registerForm.controls.username.errors && registerForm.controls.username.errors.minlength">Il tuo nome utente, è inferiore ai 3 caratteri</mat-error>
+              <mat-error *ngIf="registerForm.controls.username.errors && registerForm.controls.username.errors.maxlength">Il tuo nome utente, è superiore ai 14 caratteri</mat-error>
+              <input formControlName="username" matInput type="text" id="username">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input formControlName="email" type="text" id="email" matInput>
+              <mat-error *ngIf="registerForm.controls.email.errors && registerForm.controls.email.errors.required">Devi inserire un email</mat-error>
+              <mat-error *ngIf="registerForm.controls.email.errors && registerForm.controls.email.errors.email">L'email non è valida</mat-error>
+              <mat-error *ngIf="registerForm.controls.email.errors && registerForm.controls.email.errors.exist">L'email è già stata utilizzata</mat-error>
+            </mat-form-field>
+          </form>
+          <form  [formGroup]="registerForm">
+            <mat-form-field>
+              <mat-label for="password">Password</mat-label>
+              <input formControlName="password" id="password" [type]="passwordHide ? 'password' : 'text'"    matInput>
+              <button  class="hide_button" mat-icon-button matSuffix (click)="passwordHide = !passwordHide">
+                <mat-icon>{{passwordHide == true ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="registerForm.controls.password.errors && registerForm.controls.password.errors.required">Devi inserire una password</mat-error>
+              <mat-error *ngIf="registerForm.controls.password.errors && registerForm.controls.password.errors.pattern">La password non è valida</mat-error>
+            </mat-form-field>
+            <mat-form-field >
+              <mat-label for="repeat_password">Ripeti password</mat-label>
+              <input formControlName="repeat_password" id="repeat_password" [type]="password_RepeatHide ? 'password' : 'text'" matInput>
+              <button class="hide_button" mat-icon-button matSuffix (click)="password_RepeatHide = !password_RepeatHide" >
+                <mat-icon>{{password_RepeatHide == true ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="registerForm.controls.repeat_password.errors && registerForm.controls.repeat_password.errors.required">Inserisci di nuovo la password</mat-error>
+              <mat-error *ngIf="registerForm.controls.repeat_password.errors && registerForm.controls.repeat_password.errors.PasswordRepeat">La password è diversa</mat-error>
+            </mat-form-field>
+          </form>
+          <p style="color:#1c1c1c !important">La password deve contenere almeno una lettera maiuscola e due numeri</p>
+          <form (ngSubmit)="submit();" [formGroup]="registerForm">
+            <button [disabled]="!formIsValid()" type="submit" class="submitButton d-flex"><span>Registrati</span>   <mat-spinner *ngIf="loading" style="position:absolute; margin-left:70px; margin-top:-3px" [diameter]="30"></mat-spinner></button>
+            <p *ngIf="completed" class="success" >Account creato con successo!</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

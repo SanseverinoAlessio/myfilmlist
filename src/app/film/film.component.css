@@ -1,0 +1,19 @@
+
+.title{color: white; font-weight: 700; font-size: 2rem;}
+h2{font-weight: 700; color: #D2A02F; margin-bottom: 30px; font-size: 3rem;}
+
+  .genres{margin-bottom: 50px}
+  .genres ul{ list-style: none !important}
+  .genres li{display: inline-block;margin-right: 15px; font-size: 1.2rem;margin-bottom: 10px}
+  .genres a{color: #D1A039 !important; font-weight: 700; text-decoration: none !important}
+  .genres a::after{transition: 0.5s;background-color: #D1A039; display: block; content:''; width: 0%; height: 3px; border-radius: 10px;opacity: 0; visibility: hidden;}
+  .genres a.active::after{width: 100%; opacity: 1; visibility: visible;}
+  .genres a:hover::after {opacity: 1;visibility: visible;width: 100%}
+  a{text-decoration: none !important}
+@media only screen and (max-width: 450px) {
+
+  .film_container{padding-right: 0px}
+
+
+
+}

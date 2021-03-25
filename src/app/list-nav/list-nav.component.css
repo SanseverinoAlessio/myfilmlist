@@ -1,0 +1,22 @@
+h2{color: #EEC164; font-weight: 700; font-size: 3rem;}
+.list_nav{ margin-top:30px}
+.list_nav li{display: inline-block;margin-right: 40px;}
+.list_nav li a{font-size: 1.3rem;color: #EEC164
+; text-decoration: none !important}
+.list_nav li a::after{ content: ''; opacity: 0; height: 3px; background-color: #EEC164; display: block;transition: 0.4s;visibility: hidden;width: 0%;
+border-radius: 10px;
+}
+.list_nav li a:hover::after{opacity: 1; width: 100%;visibility: visible;}
+.list_nav li a.active::after{opacity: 1; width: 100%; visibility: visible;}
+:host ::ng-deep .mat-form-field {width: 80%;}
+:host ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-underline{background-color: #c9c7c7 !important}
+:host ::ng-deep .mat-select-arrow{color: white}
+:host ::ng-deep .mat-form-field-label{color:  #c9c7c7  !important}
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{color: #F0C258 !important}
+:host ::ng-deep .mat-form-field{width: 70% !important}
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{background-color: #F0C258 !important}
+.mat-form-field.mat-focused .searchButton{color:#F0C258 !important }
+.searchInput{width: 100%; color:#c9c7c7; transition: 0.2s}
+.mat-form-field.mat-focused .searchInput{color:#F0C258}
+:host ::ng-deep .mat-form-field{width: 70% !important}
+.searchButton{background: none !important; color: #c9c7c7  !important; border: none !important; outline: none !important}

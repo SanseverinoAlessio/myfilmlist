@@ -1,0 +1,24 @@
+<div [class.active]="open" class="wrapper">
+  <div *ngIf="open" (click)="close();"  id="filter"></div>  
+  <div style="min-height:100vh" class="d-flex justify-content-center align-items-center">
+  <div *ngIf="open" [@popUpAnim] class="updater">
+    <a (click)="close();" class="remove-icon"> <mat-icon>close</mat-icon>  </a>
+    <h2>Modifica Film</h2>
+    <form (ngSubmit)="update()" [formGroup]="updateForm">
+    <mat-form-field style="margin-bottom:10px; margin-right:20px; ">
+      <mat-label>Seleziona lo stato</mat-label>
+      <mat-select formControlName="state">
+        <mat-option *ngFor="let state of states"  [value]="state">{{state}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field style="margin-bottom:10px; margin-right:20px; ">
+      <mat-label>Seleziona il voto</mat-label>
+      <mat-select formControlName="vote">
+        <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">{{number}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button class="yellow_button" type="submit">Aggiorna</button>
+    </form>
+  </div>
+  </div>
+</div>

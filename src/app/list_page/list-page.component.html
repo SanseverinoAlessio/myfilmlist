@@ -1,0 +1,30 @@
+<p class="search_query" *ngIf="query.length > 0">Hai cercato: {{query}}</p>
+<p class="notFound" *ngIf="notFound">La ricerca non ha portato ad alcun risultato...</p>
+
+<div
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="50"
+(scrolled)="onScroll();"
+class="row listFilmRow">
+
+
+  <div [@fadeIn]="element.delete == true ? 'delete' : ''" *ngFor="let element of films" class="col-md-4 list-film">
+    <div data-id="{{element.film._id}}" class="film">
+      <a (click)="removeFilm(element);" class="remove-icon"> <mat-icon>close</mat-icon>  </a>
+      <a class="film_link" [routerLink]="'/film/' + element.film._id">
+        <img [src]=" imagesPath + element.film.image">
+      <h3>{{element.film.name}}</h3>
+      </a>
+      <span *ngIf="element.vote != null" class="vote">Voto: {{element.vote}}</span>
+      <span class="novote" *ngIf="element.vote == null">Nessun voto</span>
+      <span *ngIf="query.length > 0" class="state">Stato: <b>{{element.state}}</b></span>
+      <span class="edit-button">
+        <a (click)="openUpdateForm(element.film._id,element.vote,element.state);">Modifica <mat-icon>edit</mat-icon>  </a>
+      </span>
+    </div>
+  </div>
+</div>
+<div class="spin_wrapper d-flex justify-content-center ">
+  <mat-spinner *ngIf="loading" style="margin-bottom:20px !important" class="loading_spinner"  [diameter]="60"></mat-spinner>
+</div>

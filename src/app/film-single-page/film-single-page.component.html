@@ -1,0 +1,59 @@
+<div style="min-height:100vh; background-color: #070707; padding-top:120px" class="container-fluid film_container">
+  <div class="container page-container">
+    <div>
+      <img (click)="back();" class="backArrowIcon" src="../../assets/Icons/back_Arrow.svg">
+    </div>
+    <div class="film-section">
+      <div *ngIf="filmData != undefined">
+        <div class="row">
+          <div class="col-md-6">
+            <img [src]="imagesPath + filmData.image">
+          </div>
+          <div class="col-md-6">
+            <h2 class="title">{{filmData.name}}</h2>
+            <span class="date">Data di rilascio: <b>{{filmData.releaseDate | date:'mediumDate' }}</b></span>
+            <span class="genre d-flex">Generi:
+              <ul>
+                <li *ngFor="let genre of filmData.genre"><a [routerLink]="'/film/genere/' + genre.name">{{genre.name}}</a></li>
+              </ul>
+            </span>
+            <span class="vote">{{filmData.vote != undefined ? filmData.vote + "/10" : '0/10'}}</span>
+            <p class="description">{{filmData.description}}</p>
+            <div *ngIf="existInList == false && logged == true">
+              <form (ngSubmit)="addInList()"  [formGroup]="addForm">
+                <mat-form-field style="margin-bottom:10px; margin-right:20px">
+                  <mat-label>Seleziona lo stato</mat-label>
+                  <mat-select formControlName="state">
+                    <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field *ngIf="showVoteInput">
+                  <mat-label>Voto</mat-label>
+                  <mat-select formControlName="vote">
+                    <mat-option   *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" [value]="i">{{i}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div *ngIf="completed == false"  style="margin-bottom:60px; "><button (click)="addInList()" [disabled]="!formIsValid()" type="submit" class="yellow_button d-flex">Aggiungi film <mat-spinner *ngIf="addingFilm" style="margin-left:10px" [diameter]="25" ></mat-spinner> </button></div>
+              </form>
+            </div>
+            <div *ngIf="logged">
+              <p class="success paragraph_icon" *ngIf="completed"> <span><mat-icon>done</mat-icon></span>  Il film è stato inserito correttamente</p>
+              <p *ngIf="existInList == true" class="paragraph_icon exist"><span><mat-icon>list_alt</mat-icon></span> Il film è già presente nella tua lista</p>
+            </div>
+            <p *ngIf="logged == false" class="isNotLogged paragraph_icon"><span><mat-icon>warning</mat-icon></span>Devi accedere prima di poter inserire un film nella lista</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="loadingFilm"  style="min-height:inherit" class="d-flex justify-content-center align-items-center"><mat-spinner class="loading_spinner"  style="margin-bottom:20px" [diameter]="60" ></mat-spinner></div>
+
+    </div>
+    <div class="film-nav">
+      <ul>
+        <li><a [class.active]="currentSection=='review'" (click)="currentSection= 'review'">Recensioni</a></li>
+      </ul>
+    </div>
+    <div class="second-section">
+      <app-review *ngIf="currentSection == 'review'" [existInList]="existInList" [filmId]="filmId" [logged]="logged"></app-review>
+    </div>
+  </div>
+</div>

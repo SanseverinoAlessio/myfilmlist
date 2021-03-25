@@ -1,0 +1,27 @@
+<p class="search_query" *ngIf="query.length > 0">Hai cercato: {{query}}</p>
+<p *ngIf="notFound" class="notFound">La ricerca non ha portato ad alcun risultato...</p>
+<div infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="50"
+(scrolled)="onScroll();"
+class="row search-results">
+<div [@fadeIn] *ngFor="let film of films" class="col-md-4">
+  <div  class="film">
+    <a style="film_link" [routerLink]="'/film/' + film._id">
+      <img [src]="imagesPath + film.image">
+      <h3 class="title">{{film.name}}</h3>
+      <span class="date">Data di rilascio: <b>{{film.releaseDate | date:"mediumDate"}}</b></span>
+      <span class="genre d-flex">
+        Generi:
+        <ul>
+          <li *ngFor="let genre of film.genre">{{genre.name}}</li>
+        </ul>
+      </span>
+      <span class="vote">{{film.vote != null ? film.vote : 0}}/10</span>
+      <p class="description">{{film.description.length > 120 ? film.description.substring(0,120) + '[..]' : film.description }} </p>
+      <a [routerLink]="'/film/' + film._id" class="yellow_button">Vai</a>
+    </a>
+  </div>
+</div>
+</div>
+<div  class="d-flex justify-content-center"><mat-spinner class="loading_spinner" *ngIf="loading" style="margin-bottom:20px" [diameter]="60" ></mat-spinner></div>

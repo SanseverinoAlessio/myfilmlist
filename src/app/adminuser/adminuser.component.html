@@ -1,0 +1,59 @@
+<div class="container-fluid bg d-flex align-items-center">
+  <div style="padding-bottom:30px; min-height:100vh" class="container  ">
+    <router-outlet></router-outlet>
+<div [@tableChange] *ngIf="changeLoading" class="changeLoading d-flex justify-content-center align-items-center">
+<mat-spinner  class="loading_spinner "  style="margin-bottom:20px" [diameter]="60" ></mat-spinner>
+</div>
+<div class="table_wrapper">
+  <h2>Gestisci utenti</h2>
+  <mat-form-field id="searchBar" style="margin-top:20px;">
+    <mat-label>Cerca qui</mat-label>
+    <input (keyup)="changeSearch(searchInput.value)" class="searchInput" #searchInput  matInput type="search">
+    <button  class="searchButton" matPrefix><mat-icon> search</mat-icon></button>
+    <button (click)="searchInput.value = ''; searchSubject.next(searchInput.value)" *ngIf="searchInput.value.length > 0" class="cancelSearch" matSuffix><mat-icon>close</mat-icon></button>
+  </mat-form-field>
+  <table matSort  mat-table [dataSource]="users.result" >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td data-name="id:" mat-cell *matCellDef="let user"> {{user._id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td data-name="Nome:" mat-cell *matCellDef="let user"> {{user.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td data-name="Email:" mat-cell *matCellDef="let user"> {{user.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="admin">
+      <th mat-header-cell *matHeaderCellDef>Admin</th>
+      <td data-name="admin:" mat-cell *matCellDef="let user">
+        <mat-form-field style="margin-top:10px">
+          <mat-label>Seleziona </mat-label>
+          <mat-select [(value)]="user.admin"   (selectionChange)="changeAdminValue($event,user._id)">
+            <mat-option  [value]="true">true</mat-option>
+            <mat-option  [value]="false">false</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="options">
+      <th mat-header-cell *matHeaderCellDef>Opzioni</th>
+      <td data-name="Opzioni:" mat-cell *matCellDef="let user">
+        <button class="ellipsisMenuBtn" mat-button [matMenuTriggerFor]="optionsMenu" ><img class="ellipsisMenu" src="../../assets/Icons/ellipsis.svg"> </button>
+        <mat-menu #optionsMenu="matMenu">
+          <button (click)="deleteUser(user._id)" mat-menu-item>
+            Elimina
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columndefs"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columndefs"></tr>
+  </table>
+  <div  class="d-flex justify-content-center"><mat-spinner *ngIf="loading" class="loading_spinner"  style="margin-bottom:20px" [diameter]="60" ></mat-spinner></div>
+  <mat-paginator   (page)="pageEvent=$event;page($event) " [pageSizeOptions]="[5,10,15]" [length]="length" [pageSize]="10" ></mat-paginator>
+  <hr class="separator">
+</div>
+</div>
+</div>

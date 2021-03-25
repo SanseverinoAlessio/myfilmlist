@@ -1,0 +1,21 @@
+.review{padding: 40px 30px 40px 30px}
+.userAvatar{ width: 120px; height: 120px; border-radius: 100%;object-fit: cover;}
+.user_reviews ul{list-style: none !important}
+.user_review_name{color: white; margin-top: 40px; margin-left: 15px; font-weight: 700; font-size: 1.2rem; word-break: break-all;}
+.review_text{margin-top:5px; color: #D8D8D8 !important; max-width: 500px; margin-left: 15px}
+.user_reviews .vote{margin-top: 20px; font-size: 1.4rem;}
+.userReview::after{display: block; content: ''; height: 2px; background-color: #3A3333}
+.userReview:not(:first-of-type){margin-top:30px}
+.vote{color: #D1A039 !important; margin-top: 30px; display: block; margin-left: 15px}
+.buttons{margin-top: 20px}
+.buttons ul{list-style: none !important;}
+.buttons li{display: inline-block;margin-right: 10px; margin-bottom: 30px}
+.grey_button{font-weight: 700;transition: 0.5s;padding:10px 50px 10px 50px;
+  border-radius:10px; border:2px solid #8E8E8E; color:#8E8E8E; text-decoration: none !important;background: transparent;cursor: pointer; outline: none !important}
+  .grey_button:hover{background-color: #8E8E8E; color:white !important}
+.date{margin-left: 15px; color: #c9c9c9}
+.reviewText{width: 100%;}
+.reviewForm button[type=submit]{ padding: 7px 40px 7px 40px}
+.warning{padding-left: 20px; margin-bottom: 20px; color: #D1A039 !important}
+.warning .icon .mat-icon{position: absolute;}
+.warning .icon{width: 24px; height: 20px;display: inline-block; }

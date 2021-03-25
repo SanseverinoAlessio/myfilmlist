@@ -1,0 +1,52 @@
+<div id="filter"></div>
+<section  id="first_section" class="container-fluid ">
+  <div style="min-height:inherit" class="row justify-content-center align-items-center first_section_container">
+    <div style="text-align:center" class="col-md-6">
+      <h1>Benvenuto su Myfilmlist!</h1>
+      <p>Benvenuto! su Myfilmlist hai la possibilità di aggiungere alla tua lista e recensire i film presenti sulla piattaforma.
+        ti auguriamo una buona permanenza!
+       </p>
+       <a routerLink="/film" class="yellow_button">Vai ai film</a>
+    </div>
+  </div>
+</section>
+<section style="z-index=50; position:relative " class="container-fluid" id="popular_film">
+  <div style="padding-top:40px" class="container">
+    <h2 class="section_title">I più popolari</h2>
+    <swiper *ngIf="topFilms.length > 0"  [navigation]="true"
+      style="margin-top:80px; height:500px;cursor:pointer; margin-bottom:50px" [slidesPerView]="width()" [spaceBetween]="30">
+      <ng-template  swiperSlide *ngFor="let film of topFilms">
+        <a class="slider_element" [routerLink]="'/film/' + film._id" >
+          <img  class="slider_img" style="width:100%" [src]="imagesPath + film.image">
+          <h3>{{film.name}}</h3>
+          <p class="date">Data di rilascio: {{film.releaseDate | date:'mediumDate'}}</p>
+          <span class="genre d-flex">Generi:
+            <ul>
+              <li *ngFor="let genre of film.genre"><a [routerLink]="'/film/genere/' + genre.name">{{genre.name}}</a></li>
+            </ul> </span>
+            <span class="vote">{{film.averageVote != null ? film.averageVote : 0}}/10</span>
+            <p style="width:100%" class="description">{{film.description.length > 120 ? film.description.substring(0,120) + '[..]' : film.description }} </p>
+          </a>
+        </ng-template>
+      </swiper>
+      <div *ngIf="topFilms.length <= 0">
+        <h3 class="notFound">Non ci sono film popolari attualmente...</h3>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid" id="genre_section">
+    <div style="padding-top:50px" class="container">
+      <h2>Generi</h2>
+      <div *ngIf="genres.length > 0" style="padding-top:60px" class="row">
+        <div *ngFor="let genre of genres" class="col-md-4 genre">
+          <a class="genre_link">
+            <div style="overflow:hidden" [routerLink]="'/film/genere/' + genre.name"><img [src]="imagesPath + genre.photo"></div>
+            <div class="genre_name"><span>{{genre.name}}</span></div>
+          </a>
+        </div>
+      </div>
+      <div *ngIf="genres.length <= 0">
+        <h3 class="notFound">Non è stato aggiunto ancora nessun genere...</h3>
+      </div>
+    </div>
+  </section>

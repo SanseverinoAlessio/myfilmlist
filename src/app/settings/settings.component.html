@@ -1,0 +1,79 @@
+<div *ngIf="deleteAccountLoading" class="overlay d-flex justify-content-center align-items-center">
+<mat-spinner  [diameter]="60"></mat-spinner>
+
+</div>
+<app-confirm [text]='"Cancellando il tuo account, perderai ogni tipo di dato correlato ad esso"' [title]="'Sei sicuro?'" [open]="openDeleteAccount" (closeEv)="openDeleteAccount= false"  (confirmed)="deleteAccount()"></app-confirm>
+<div class="d-flex justify-content-center align-items-center" id="bg">
+  <div id="settings">
+    <h2>Impostazioni</h2>
+    <div id="settings_navigation">
+      <ul>
+        <li><a (click)="changeSection('informazioni')" [class.active]="currentSection=='informazioni'">Dati</a></li>
+        <li><a (click)="changeSection('password')" [class.active]="currentSection=='password'">Password</a></li>
+        <li><a (click)="changeSection('avatar')" [class.active]="currentSection=='avatar'">Avatar</a></li>
+      </ul>
+    </div>
+    <div [@changeSection] *ngIf="currentSection == 'informazioni'" id="user_data_section">
+      <form (ngSubmit)="updateInformation();" [formGroup]="informationForm">
+        <mat-form-field style="margin-top:20px;">
+          <mat-label>Nome</mat-label>
+          <input formControlName="name" type="text" id="name" matInput>
+          <mat-error *ngIf="informationForm.controls.name.errors && informationForm.controls.name.errors.required">Inserisci un nome utente</mat-error>
+        </mat-form-field>
+        <mat-form-field  >
+          <mat-label>Email</mat-label>
+          <input formControlName="email"  type="email" id="email" matInput>
+          <mat-error *ngIf="informationForm.controls.email.errors && informationForm.controls.email.errors.required">Inserisci un email</mat-error>
+          <mat-error *ngIf="informationForm.controls.email.errors && informationForm.controls.email.errors.email">L'email non è valida</mat-error>
+        </mat-form-field>
+        <button [disabled]="!informationForm.valid" class="yellow_button update_button d-flex" type="submit">Aggiorna <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>  </button>
+      </form>
+      <a (click)="openDeleteAccount = true" class="delete_account">Cancella il tuo account</a>
+    </div>
+    <div [@changeSection] *ngIf="currentSection == 'password'" id="password_section">
+      <form (ngSubmit)="updatePassword();" [formGroup]="passwordForm">
+        <mat-form-field style="margin-top:20px;">
+          <mat-label>Vecchia password</mat-label>
+          <input formControlName="oldPassword" [type]="oldPasswordHide==true ? 'password' : 'text'" id="password" matInput>
+          <button (click)="oldPasswordHide=!oldPasswordHide" class="inputIcon" mat-icon-button matSuffix>
+            <mat-icon>{{oldPasswordHide == true ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="passwordForm.controls.oldPassword.errors && passwordForm.controls.oldPassword.errors.required">Inserisci la vecchia password</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Nuova password</mat-label>
+          <input formControlName="newPassword" [type]="newPasswordHide== true ? 'password' : 'text'" id="newPassword" matInput>
+          <button (click)="newPasswordHide=!newPasswordHide" class="inputIcon" mat-icon-button matSuffix>
+            <mat-icon>{{newPasswordHide == true ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="passwordForm.controls.newPassword.errors && passwordForm.controls.newPassword.errors.required">Inserisci la password</mat-error>
+          <mat-error *ngIf="passwordForm.controls.newPassword.errors && passwordForm.controls.newPassword.errors.pattern">La password deve avere una lettera maiuscola e due numeri</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Ripeti nuova password</mat-label>
+          <input formControlName="repeat_newPassword" [type]="repeat_newPasswordHide== true ? 'password' : 'text'" id="repeat_newPassword" matInput>
+          <button (click)="repeat_newPasswordHide=!repeat_newPasswordHide" class="inputIcon" mat-icon-button matSuffix>
+            <mat-icon>{{repeat_newPasswordHide == true ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="passwordForm.controls.repeat_newPassword.errors && passwordForm.controls.repeat_newPassword.errors.required">Inserisci la password</mat-error>
+          <mat-error *ngIf="passwordForm.controls.repeat_newPassword.errors && passwordForm.controls.repeat_newPassword.errors.passwordRepeat">La password non coincide</mat-error>
+        </mat-form-field>
+        <button [disabled]="!passwordForm.valid" class="yellow_button update_button d-flex" type="submit">Aggiorna <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>  </button>
+      </form>
+    </div>
+    <div [@changeSection] *ngIf="currentSection == 'avatar'" id="avatar_section">
+      <div class="d-flex flex-column">
+        <div>
+          <input (change)="avatarChange($event);" #avatar style="display:none" type="file">
+          <img class="avatar_image" [src]="avatarPreview">
+          <button (click)="avatar.click();" class="update_button" >Carica <span><mat-icon>upload</mat-icon></span></button>
+        </div>
+        <a *ngIf="avatarPreview != '../../assets/Images/default-avatar.png'" (click)="deleteAvatar()" class="delete_avatar">Elimina</a>
+      </div>
+
+      <button [disabled]="fileAvatar == undefined ? true : false" (click)="updateAvatar()" class="avatarConfirmButton yellow_button d-flex">Aggiorna<mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner></button>
+    </div>
+    <p *ngIf="success" class="success">I dati sono stati aggiornati correttamente</p>
+    <p class="error">{{error}}</p>
+  </div>
+</div>

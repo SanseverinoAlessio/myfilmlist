@@ -1,0 +1,15 @@
+.wrapper{width: 100%; position: fixed; min-height: 100vh; z-index: 1003;top:0; bottom: 0; overflow-y: auto;margin-top:70px; visibility: hidden;}
+.wrapper.active{visibility: visible !important;}
+#filter{z-index: 100; position: fixed; width: 100%; background-color: black; height: 100vh; opacity: 0.4;top:0}
+.review_view{padding:40px;width: 600px; min-height: 330px; background-color: #161616; border-radius: 10px; position: relative;
+  z-index: 1000;  opacity: 1; margin-bottom: 100px;margin-top: 30px; z-index: 200}
+  .remove-icon .mat-icon{color: #c91c16; font-size: 35px}
+  .remove-icon{position: absolute;margin-top:-35px; margin-left: -35px;cursor: pointer;}
+  .avatar{width: 100px; height: 100px; border-radius: 100%; object-fit: cover;}
+  .name{color: white;  font-weight: 700;font-size: 1.2rem;}
+  .date{color: #c9c9c9;font-size: 1rem;}
+  .score{color: #D1A039; font-weight: 700;  display: block; font-size: 1.5rem;display: block; margin-bottom: 6px}
+  .text{color: #D8D8D8;}
+  @media only screen and (max-width: 550px) {
+    .review_view{width: 310px !important}
+  }

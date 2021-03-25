@@ -1,0 +1,13 @@
+ h2{color: #EEC164; font-weight: 700; font-size: 3rem;}
+:host ::ng-deep .mat-form-field {width: 80%;}
+:host ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-underline{background-color: #c9c7c7 !important}
+:host ::ng-deep .mat-form-field-label{color:  #c9c7c7  !important}
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{color: #F0C258 !important}
+:host ::ng-deep .mat-form-field{width: 70% !important}
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{background-color: #F0C258 !important}
+.mat-form-field.mat-focused .searchButton{color:#F0C258 !important }
+:host ::ng-deep .mat-form-field .reviewInput{color: #c9c7c7 }
+:host ::ng-deep .mat-form-field.mat-focused .reviewInput{color: #F0C258}
+.searchButton{background: transparent; border: none !important; outline: none !important; color:#c9c7c7 }
+.searchInput{color:#c9c7c7 }
+:host ::ng-deep .mat-form-field.mat-focused .searchInput{color: #F0C258}

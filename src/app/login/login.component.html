@@ -1,0 +1,36 @@
+<div  id="bg" class="d-flex justify-content-center align-items-center">
+  <div id="login_container">
+    <div style="padding:10px" class="row">
+      <div class="col-md-6">
+        <img style="width:100%" src="../../assets/Images/film.jpg">
+      </div>
+      <div style="padding-top:50px" class="col-md-6 ">
+        <h2>Accedi</h2>
+        <div class="d-flex links">
+          <a routerLinkActive="active" routerLink="/account/login">Accedi</a>
+          <a routerLink="/account/register">Registrati</a>
+        </div>
+        <form [@fadeIn] [formGroup]="loginForm" (ngSubmit)="submit();">
+          <mat-form-field style="margin-top:20px;">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="text" id="email" matInput>
+            <mat-error *ngIf="loginForm.controls.email.errors && loginForm.controls.email.errors.required">Inserisci l'email</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label for="password">Password</mat-label>
+            <input formControlName="password" id="password" [type]="passwordHide == true ? 'password' : 'text' " matInput>
+            <button (click)="passwordHide=!passwordHide" class="inputIcon" mat-icon-button matSuffix>
+              <mat-icon>{{passwordHide == true ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.controls.password.errors && loginForm.controls.password.errors.required">Inserisci la password</mat-error>
+          </mat-form-field>
+          <p *ngIf="error" class="error">Sembra che tu abbia inserito un'email, oppure una password errata</p>
+          <p *ngIf="completed" class="success">Accesso completato!</p>
+          <span class="resetLink">Hai dimenticato la password? <a routerLink="/account/resetpassword" style="font-weight:700;">Clicca qui</a></span>
+          <button [disabled]="!formIsValid()" type="submit" class="submitButton d-flex"><span>Accedi</span> <mat-spinner  *ngIf="loading" style="position:absolute; margin-left:50px; margin-top:-3px" [diameter]="30"></mat-spinner></button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

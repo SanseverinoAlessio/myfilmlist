@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+*{margin: 0px; padding: 0px;font-family: 'Cuprum', sans-serif;}
+
+.swiper-button-next{background-color: white; width: 40px; height: 40px; border-radius: 100%;box-shadow: -2px 4px 5px -1px rgba(46,46,46,1);
+}
+.swiper-button-next::after{color: black !important; font-size: 30px;font-weight: 700; margin-left: 3px;
+}
+.swiper-button-prev{background-color: white; width: 40px; height: 40px; border-radius: 100%;box-shadow: -2px 4px 5px -1px rgba(46,46,46,1);
+}
+.swiper-button-prev::after{margin-right: 3px;;color: black !important; font-size: 30px;font-weight: 700;
+}
+.swiper-button-next,.swiper-button-prev{margin-top: -70px}
+.container-fluid{padding-left: 100px !important}
+.yellow_button{outline: none !important;border: 2px solid #C8A348; background: transparent; color: #C8A348 ; border-radius: 10px; text-decoration: none !important;
+  padding:10px 50px 10px 50px; font-weight: 700;font-size: 1rem;cursor: pointer;transition: 0.5s;}
+  .yellow_button:hover{background-color: #C8A348 !important; color: black !important;}
+  .yellow_button:disabled{opacity: 0.5; cursor: not-allowed;}
+  .yellow_button:disabled:hover{background-color: transparent !important; color: #C8A348 !important}
+  .red_button{padding: 10px 50px 10px 50px; font-weight: 700; background:transparent; border-radius: 10px; border: #E41C1C 3px solid; outline:none !important;
+    color: #E41C1C; transition: 0.5s;
+  }
+  .red_button:hover{background-color: #E41C1C; color: white}
+  .red_button .mat-progress-spinner circle{stroke:#E41C1C !important }
+  .red_button:hover .mat-progress-spinner circle{stroke:white !important; }
+  .yellow_button .mat-progress-spinner circle{stroke:#C8A348 !important }
+  .yellow_button:hover .mat-progress-spinner circle{stroke:black !important }
+  .loading_spinner circle{stroke: #C8A348 !important}
+  .update_button{padding: 7px 30px 7px 30px; margin-top: 10px;
+    background: transparent ; border-radius: 10px;  transition: 0.4s;outline: none !important}
+    .upload{background:transparent !important; color: white;  border-radius: 10px; outline:none !important;
+      transition: 0.5s;text-align: center;height: 50px; min-width: 130px; padding-left: 13px;padding-right: 30px;
+      border: 3px solid #c9c7c7;
+      color: #c9c7c7; transition: 0.4s;
+    }
+    .upload:hover{background-color: #c9c7c7 !important; color: black !important}
+    .upload span{display: inline-block;position: absolute;}
+    /* List style */
+    .list-film img{width: 100%;border-radius: 10px; object-fit: cover; height: 280px}
+    .listFilmRow{margin-top: 70px !important}
+    .list-film h3{color: white; font-weight: 700;margin-top: 10px; font-size: 2.3rem}
+    .list-film .vote{color: white; font-size: 1.3rem;display: block; margin-top: -5px}
+    .list-film .film{background-color: #111111; border-radius: 10px; padding: 10px 10px 20px 10px;
+    }
+    .list-film .state{color: #c9c7c7; margin-top: 5px; display: block}
+
+    .list-film .edit-button a{color: #C8A348; text-decoration: none}
+    .edit-button{margin-top: 20px !important;display: block}
+    .edit-button .mat-icon{position: absolute; margin-left: 3px; margin-top: -2px}
+    .list-film{margin-bottom: 20px}
+    .list-film .remove-icon .mat-icon{color: #c91c16; font-size: 30px; margin-left: -8px; cursor: pointer}
+    .cancelSearch{border: none !important; outline: none !important;  color:white; background:transparent;
+  border-radius: 100%;width:20px; height: 20px; margin-top:-20px !important;}
+      .cancelSearch .mat-icon{font-size: 18px !important; font-weight: 700}
+      .mat-form-field.mat-focused .searchButton{color:#F0C258 !important;}
+      .searchButton{color: #c9c7c7; border: none !important; outline: none !important;
+         background: none;transition: 0.2s; width: 25px;height: 25px; }
+         .searchButton .mat-icon{ vertical-align:bottom;}
+
+
+      @media only screen and (max-width: 768px) {
+        .container-fluid{padding-left: 0px !important}
+      }
+      html, body { height: 100%; }

@@ -1,0 +1,47 @@
+<p class="search_query" *ngIf="query.length > 0">Hai cercato: {{query}}</p>
+<p *ngIf="notFound" class="notFound">La ricerca non ha portato ad alcun risultato...</p>
+<div
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="50"
+(scrolled)="onScroll();"
+style=" margin-top:30px" class="row">
+<div  style="margin-bottom:20px" *ngFor="let review of reviews" class="col-md-12 review_column">
+  <div class="review_wrapper">
+    <span class="date">Hai recensito {{review.film[0].name}} il: <b> {{review.date | date:"mediumDate"}}</b></span>
+    <div class="information d-flex">
+      <img class="avatar"  [src]="  review.user[0].avatar.length > 0 ? avatarUrl + review.user[0].avatar  : '../../assets/Images/default-avatar.png'">
+      <span class="name"></span>
+    </div>
+    <span  class="vote">Valutazione: {{review.vote}}</span>
+    <p  class="review_text" *ngIf="currentReview != review.film[0]._id">{{review.text}}</p>
+    <mat-form-field [class.mat-form-field-invalid]="reviewtext.value.length <= 50 ||reviewtext.value.length > 400" [class.active]="currentReview == review.film[0]._id ? true : false"  class="textReviewWrapper" style="margin-left:15px; margin-top:20px">
+      <mat-label>Testo recensione</mat-label>
+      <textarea  #reviewtext  autofocus class="reviewInput" matInput  style="width:100%;" >{{review.text}}</textarea>
+      <mat-hint *ngIf="reviewtext.value.length <= 50 ||reviewtext.value.length > 400" class="text-danger">La lunghezza deve essere compresa tra i 50 ai 400 caratteri</mat-hint>
+    </mat-form-field>
+    <div style="margin-top:40px;margin-bottom:40px;margin-left:15px" class="buttons d-flex">
+      <ul *ngIf="currentReview != review.film[0]._id">
+        <li >
+          <button  (click)="currentReview = review.film[0]._id" class="yellow_button">Modifica</button>
+        </li>
+        <li>
+          <button (click)="deleteReview(review.film[0]._id,deletespinner)" class="red_button d-flex">Elimina <mat-spinner #deletespinner class="spinner"  [diameter]="25"></mat-spinner></button>
+        </li>
+      </ul>
+      <ul *ngIf="currentReview == review.film[0]._id">
+        <li >
+          <button [disabled]="reviewtext.value.length <= 50 ||reviewtext.value.length > 400" (click)="changeReview(reviewtext.value,review.film[0]._id,updatespinner)" class="yellow_button d-flex">Aggiorna <mat-spinner  class="spinner" #updatespinner [diameter]="25"></mat-spinner></button>
+        </li>
+        <li >
+          <button (click)="cancel(review.film[0]._id,reviewtext);"  class="red_button">Annulla</button>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</div>
+<div class="spin_wrapper d-flex justify-content-center ">
+  <mat-spinner *ngIf="loading" style="margin-bottom:20px !important" class="loading_spinner"  [diameter]="60"></mat-spinner>
+</div>

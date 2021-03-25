@@ -1,0 +1,8 @@
+<h2>Le tue recensioni</h2>
+<mat-form-field>
+  <mat-label>Cerca qui</mat-label>
+  <input #searchInput (keyup)="inputChange($event)" class="searchInput"  matInput type="search">
+  <button (click)="search(searchInput.value)" class="searchButton" matPrefix><mat-icon>search</mat-icon></button>
+  <button (click)="searchInput.value = ''; searchChange.next(searchInput.value)" *ngIf="searchInput.value.length > 0" class="cancelSearch" matSuffix><mat-icon>close</mat-icon></button>
+
+</mat-form-field>
